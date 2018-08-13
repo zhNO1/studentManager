@@ -1,0 +1,24 @@
+{
+  "name": "02.studentManager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AutumnFish/studentManager_20.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AutumnFish/studentManager_20/issues"
+  },
+  "homepage": "https://github.com/AutumnFish/studentManager_20#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.1"
+  }
+}
