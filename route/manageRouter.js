@@ -23,8 +23,8 @@ router.post('/login', (req, res) => {
     let userName = req.body.userName;
     let userPass = req.body.userPass;
     let vCode = req.body.vCode.toLowerCase();
-    console.log(vCode+"输入的");
-    console.log(req.session.captcha+"缓存的");
+    //console.log(vCode+"输入的");
+   // console.log(req.session.captcha+"缓存的");
 
     //判断验证码
     if (vCode == req.session.captcha) {
@@ -33,14 +33,17 @@ router.post('/login', (req, res) => {
         // 再去验证用户名密码
         helper.find('admin', { userName, userPass }, (result) => {
             // res.send(result);
-            if (result.length != 0) {
-                // 去首页
-                res.redirect('/student/index');
-            } else {
-                helper.tips(res, '用户名或者密码错误 😁😁😁😁😁😁', '/manager/login');
+            //验证用户名密码
+                if (result.length != 0) {
+                    req.session.userName=userName;
+                    // 去首页
+                    res.redirect('/student/index');
+                } else {
+                    helper.tips(res, '用户名或者密码错误 😁😁😁😁😁😁', '/manager/login');
+    
+                }
+            })
 
-            }
-        })
     } else {
         // res.send('错误');
         // 直接提示用户

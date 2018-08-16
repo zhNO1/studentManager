@@ -5,7 +5,10 @@ const bodyParser = require('body-parser')
 // 导入 express-session中间件(包)
 const session = require('express-session')
 //引入自己的路由
+// 管理员相关路由
 const manageRouter=require('./route/manageRouter');
+// 学员相关路由
+const studentRouter = require('./route/studentRouter');
 
 // 实例化 app
 let app = express();
@@ -24,9 +27,9 @@ app.use(session({
 app.use(express.static('static'));
 //使用自己写的路由
 app.use('/manager',manageRouter)
-
+app.use('/student',studentRouter)
 // 开启监听
-app.listen(8080,()=>{
+app.listen(8000,()=>{
     console.log('success');
 })
 

@@ -51,7 +51,7 @@
       
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-4">
-                  <button type="submit" class="btn btn-danger btn-block">注册</button>
+                  <button type="submit" class="btn btn-danger btn-block register">注册</button>
                 </div>
               </div>
             </form>
@@ -68,3 +68,17 @@
 <script src="/bootstrap/js/jquery-1.12.4.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/bootstrap/js/bootstrap.min.js"></script>
+<!-- MD5加盟 -->
+<script src="/md5/md5.min.js"></script>
+<script>
+  $(function(){
+    //md5加密
+    $('.register').click(function(event){
+      let value =$('#userPass').val();
+      //重新赋值给dom
+      $('#userPass').val(md5("value", "key"));
+
+    })
+  })
+
+</script>

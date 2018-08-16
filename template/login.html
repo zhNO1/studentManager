@@ -60,7 +60,7 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-success">登陆</button>
+                  <button type="submit" class="btn btn-success login">登陆</button>
                   <a href="/manager/register" class="btn btn-danger">注册</a>
                 </div>
               </div>
@@ -78,6 +78,8 @@
 <script src="/bootstrap/js/jquery-1.12.4.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/bootstrap/js/bootstrap.min.js"></script>
+<!-- MD5加盟 -->
+<script src="/md5/md5.min.js"></script>
 <script>
   $(function(){
     // $('.vCode').attr('src','/manager/vCode');
@@ -86,6 +88,13 @@
       // 可以人为的在url的后面拼接上 随机的字符 让浏览器人为 这个文件已被改变 重新请求数据
       $(this).attr('src','/manager/vcode?'+Date.now());
     }).trigger('click'); 
+
+    //md5加密
+    $('.login').click(function(event){
+      let value =$('#userPass').val();
+      //重新赋值给dom
+      $('#userPass').val(md5("value", "key"));
+    })
   })
 
 </script>
